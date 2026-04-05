@@ -1,0 +1,27 @@
+# Conclusiones del ejercicio - Demoblaze Automation API
+
+## 1. Objetivo
+El objetivo del ejercicio fue automatizar la prueba de creación de usuarios en la API de Demoblaze, validando tanto la creación exitosa como los errores al intentar registrar un usuario existente.
+
+## 2. Hallazgos
+
+1. La API devuelve diferentes estructuras según el resultado:
+   - Usuario existente: `{ "errorMessage": "This user already exist." }`
+   - Usuario nuevo: la respuesta no incluye la clave `message`.
+2. Inicialmente, los tests fallaban al usar `match` con claves que no siempre existían.
+3. La solución correcta fue:
+   - Validar condicionalmente la respuesta según el valor esperado (`expectedError`).
+   - Evitar `else` directo en Karate, usando `if` y verificaciones seguras.
+
+## 3. Conclusiones
+
+- Karate permite manejo condicional de validaciones con `if`.
+- Siempre se debe adaptar el `match` a la estructura real de la respuesta JSON.
+- La automatización de API con Karate y Maven es eficiente y permite generar reportes claros con Serenity.
+- Mantener ejemplos claros en `Scenario Outline` facilita la ejecución de múltiples escenarios con datos diferentes.
+
+## 4. Recomendaciones
+
+- Documentar siempre la estructura de respuesta de la API antes de escribir los tests.
+- Usar validaciones condicionales o `karate.assert` para evitar errores por claves ausentes.
+- Mantener los datos de prueba aislados en la sección `Examples` para facilitar el mantenimiento.

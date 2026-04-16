@@ -1,0 +1,25 @@
+[
+  {
+    "testCase": "empty_fields",
+    "request": {
+      "username": "",
+      "password": ""
+    },
+    "expectedStatus": 500,
+    "expectedType": "error"
+  },
+  {
+    "testCase": "missing_password",
+    "request": {
+      "username": "admin"
+    },
+    "expectedStatus": 200,
+    "expectedType": "error"
+  },
+  {
+    "testCase": "malformed_payload",
+    "request": "INVALID_JSON",
+    "expectedStatus": 415,
+    "expectedType": "error"
+  }
+]

@@ -2,10 +2,12 @@ package com.demoblazeapi.automation.runners;
 
 import com.intuit.karate.junit5.Karate;
 
-public class ApiRunner {
+class ApiRunner {
 
     @Karate.Test
-    Karate testApi() {
-        return Karate.run("classpath:features/api").relativeTo(getClass());
+    Karate testAllApi() {
+        // "features/api" apunta a src/test/resources/features/api
+        return Karate.run("classpath:features/api");
     }
+
 }

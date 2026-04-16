@@ -1,0 +1,20 @@
+[
+  {
+    "username": "admin",
+    "password": "admin123",
+    "expectedType": "success",
+    "expectedMessage": ""
+  },
+  {
+    "username": "wrongUser",
+    "password": "wrongPass",
+    "expectedType": "error",
+    "expectedMessage": "This user already exist."
+  },
+  {
+    "username": "invalid",
+    "password": "123",
+    "expectedType": "error",
+    "expectedMessage": "Invalid username or password."
+  }
+]
